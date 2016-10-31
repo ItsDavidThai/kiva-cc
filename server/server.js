@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '../')));
 
 // redirect all requests to react-router
-app.get('/*', function(req, res) {
+app.all('/*', function(req, res) {
   res.sendFile('index.html', {
     root: path.resolve(__dirname, '../src')
   });
