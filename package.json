@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -d --watch --verbose" ,
+    "dev": "webpack -d --watch --verbose",
     "build": "webpack -d",
     "start": "node server/server.js",
     "postinstall": "webpack -p --config ./webpack.config.js --progress"
@@ -15,10 +15,11 @@
   },
   "author": "",
   "license": "ISC",
-    "dependencies": {
+  "dependencies": {
     "axios": "^0.14.0",
     "body-parser": "^1.13.3",
     "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^3.0.0",
