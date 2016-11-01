@@ -24,8 +24,10 @@
     "babel-preset-stage-0": "^6.5.0",
     "body-parser": "^1.13.3",
     "express": "^4.14.0",
+    "moment": "^2.15.2",
     "morgan": "^1.7.0",
     "react": "^15.3.2",
+    "react-bootstrap": "^0.30.6",
     "react-dom": "^15.3.2",
     "react-router": "^3.0.0",
     "webpack": "^1.13.3"

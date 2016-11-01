@@ -12,9 +12,16 @@ class App extends Component {
   }
 
   componentDidMount() {
+    let that = this;
     axios.get('http://api.kivaws.org/v1/lenders/jeremy/loans.json').then(function(result){
-      this.setState({ loanData: result })
-    }.bind(this))
+      that.setState({ loanData: result.data.loans })
+    })
+    .then(function(){
+      axios.get('http://api.kivaws.org/v1/lenders/jeremy/loans.json?page=2').then(function(result){
+        let loanData = that.state.loanData
+        that.setState({ loanData: loanData.concat(result.data.loans) })
+      })
+    })
   }
 
   handleFundOptionChange(event) {
@@ -24,11 +31,13 @@ class App extends Component {
   render() {
     let info = <div></div>;
 
-    if (this.state.loanData.data){
-      let filteredBySector = this.state.loanData.data.loans.filter((loan) => loan.sector === this.state.sector)
+    if (this.state.loanData.length >= 1){
+      let filteredBySector = this.state.loanData.filter((loan) => loan.sector === this.state.sector)
       console.log(this.state.loanData)
       if(this.state.sector === 'All'){
-        info = this.state.loanData.data.loans.map((loan) => <LoanItem data={loan} />, this)
+
+        info = this.state.loanData.map((loan) => <LoanItem data={loan} />, this)
+
       } else {
         info = filteredBySector.map((loan) => <LoanItem data={loan} />, this)
       }
