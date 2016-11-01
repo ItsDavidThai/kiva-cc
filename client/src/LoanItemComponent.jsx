@@ -6,9 +6,7 @@ class LoanItem extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render(){
-    console.log(this.props)
     return(
       <Panel>
         <p>Status: {this.props.data.status}</p>
