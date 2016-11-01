@@ -13,11 +13,11 @@ class App extends Component {
 
   componentDidMount() {
     let that = this;
-    axios.get('http://api.kivaws.org/v1/lenders/jeremy/loans.json').then(function(result){
+    axios.get('https://api.kivaws.org/v1/lenders/jeremy/loans.json').then(function(result){
       that.setState({ loanData: result.data.loans })
     })
     .then(function(){
-      axios.get('http://api.kivaws.org/v1/lenders/jeremy/loans.json?page=2').then(function(result){
+      axios.get('https://api.kivaws.org/v1/lenders/jeremy/loans.json?page=2').then(function(result){
         let loanData = that.state.loanData
         that.setState({ loanData: loanData.concat(result.data.loans) })
       })
