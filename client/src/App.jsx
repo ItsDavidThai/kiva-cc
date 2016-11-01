@@ -43,6 +43,7 @@ class App extends Component {
             <h2>Coding Challenge</h2>
         </div>
         <div>
+          <label>Sector:</label>
           <select value={this.state.sector} onChange={this.handleFundOptionChange.bind(this)}>
             <option value="All">All</option>
             <option value="Agriculture">Agriculture</option>
